@@ -1,0 +1,32 @@
+.asset {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__main {
+      display: flex;
+      align-items: center;
+
+      &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        margin-right: 8px;
+        border-radius: 4px;
+      }
+
+      &__info__name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+  }
+}

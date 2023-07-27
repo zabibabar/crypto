@@ -1,0 +1,26 @@
+<div class="asset-data-card">
+  <div class="asset-data-card__label">
+    {{ label }}
+  </div>
+  <div
+    class="asset-data-card__value"
+    [ngClass]="{
+      'asset-data-card__value--large': isLarge,
+    }"
+  >
+    {{ value | currency }}
+  </div>
+  <div
+    class="asset-data-card__change"
+    [ngClass]="{
+      'asset-data-card__change--positive': changeAmount > 0,
+      'asset-data-card__change--negative': changeAmount < 0
+    }"
+    *ngIf="changeAmount"
+  >
+    <mat-icon>
+      {{ changeAmount > 0 ? "arrow_drop_up" : "arrow_drop_down" }}</mat-icon
+    >
+    <span> {{ changeAmount | number : "1.2-2" }}%</span>
+  </div>
+</div>

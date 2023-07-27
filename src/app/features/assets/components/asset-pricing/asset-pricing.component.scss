@@ -1,0 +1,11 @@
+.asset-pricing {
+  padding: 16px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 64px;
+
+  &__price {
+    grid-column: 1 / 5;
+  }
+}

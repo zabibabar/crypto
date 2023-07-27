@@ -1,0 +1,8 @@
+.asset-history-chart {
+  padding: 16px;
+  border-radius: 4px;
+
+  &__price {
+    grid-column: 1 / 5;
+  }
+}

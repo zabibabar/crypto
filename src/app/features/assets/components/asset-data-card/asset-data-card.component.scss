@@ -1,0 +1,17 @@
+.asset-data-card {
+  padding: 16px 0px;
+  border-radius: 4px;
+
+  &__label {
+    margin-bottom: 16px;
+  }
+
+  &__value {
+    margin-bottom: 8px;
+  }
+
+  &__change {
+    display: flex;
+    align-items: center;
+  }
+}

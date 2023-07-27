@@ -1,0 +1,27 @@
+<ng-container *ngIf="asset">
+  <div class="asset-pricing">
+    <app-asset-data-card
+      class="asset-pricing__price"
+      label="{{ asset.name }} Price"
+      [value]="asset.priceUsd"
+      [change]="asset.changePercent24Hr"
+      [isLarge]="true"
+    ></app-asset-data-card>
+    <app-asset-data-card
+      label="Market Cap"
+      [value]="asset.marketCapUsd"
+    ></app-asset-data-card>
+    <app-asset-data-card
+      label="Circulating Supply"
+      [value]="asset.supply"
+    ></app-asset-data-card>
+    <app-asset-data-card
+      label="Traded Volume (24h)"
+      [value]="asset.volumeUsd24Hr"
+    ></app-asset-data-card>
+    <app-asset-data-card
+      label="Average Price (24h)"
+      [value]="asset.vwap24Hr"
+    ></app-asset-data-card>
+  </div>
+</ng-container>

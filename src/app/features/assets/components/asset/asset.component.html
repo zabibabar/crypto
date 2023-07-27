@@ -1,0 +1,29 @@
+<ng-container *ngIf="asset$ | async as asset">
+  <div class="asset">
+    <div class="asset-header">
+      <div class="asset-header__main">
+        <div class="asset-header__main__logo">
+          <mat-icon>monetization_on</mat-icon>
+        </div>
+        <div class="asset-header__main__info">
+          <div class="asset-header__main__info__name">
+            <h1>{{ asset.name }}</h1>
+            <div class="asset-header__main__info__name__rank">
+              #{{ asset.rank }}
+            </div>
+          </div>
+          <div class="asset-header__main__symbol">{{ asset.symbol }}</div>
+        </div>
+      </div>
+      <button mat-flat-button color="primary" (click)="openTradeDialog(asset)">
+        <mat-icon>currency_exchange</mat-icon>
+        <span> Trade {{ asset.name }} </span>
+      </button>
+    </div>
+    <app-asset-pricing [asset]="asset"></app-asset-pricing>
+    <app-asset-history-chart
+      *ngIf="assetHistory$ | async as assetHistory"
+      [assetHistory]="assetHistory"
+    ></app-asset-history-chart>
+  </div>
+</ng-container>

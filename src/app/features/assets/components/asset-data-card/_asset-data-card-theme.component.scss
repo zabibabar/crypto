@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $primary-palette: map.get($color-config, "primary");
+  $accent-palette: map.get($color-config, "accent");
+  $warn-palette: map.get($color-config, "warn");
+  $foreground-palette: map.get($color-config, "foreground");
+  $green-palette: mat.define-palette(mat.$green-palette);
+  $light-green-palette: mat.define-palette(mat.$light-green-palette);
+
+  .asset-data-card {
+    // border: 1px solid mat.get-color-from-palette($foreground-palette, divider);
+    &__label {
+      color: mat.get-color-from-palette($foreground-palette, secondary-text);
+    }
+
+    &__change--positive {
+      color: mat.get-color-from-palette($accent-palette, default);
+    }
+
+    &__change--negative {
+      color: mat.get-color-from-palette($warn-palette, default);
+    }
+  }
+}
+
+@mixin typography($typography-config) {
+  .asset-data-card {
+    &__value {
+      @include mat.typography-level($typography-config, "headline-6");
+    }
+
+    &__value--large {
+      @include mat.typography-level($typography-config, "headline-2");
+    }
+  }
+}
+
+@mixin theme($theme, $typography-config) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  @if $typography-config != null {
+    @include typography($typography-config);
+  }
+}
