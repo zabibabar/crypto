@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Trade {{ data.asset.name }}</h1>
+<div mat-dialog-content>
+  <div class="wallet-trade-form">
+    <div>You have {{ currentAssetAmount }} {{ data.asset.name }}s</div>
+    <mat-button-toggle-group
+      [formControl]="tradeTypeControl"
+      aria-label="Trade Type"
+    >
+      <mat-button-toggle value="buy">Buy</mat-button-toggle>
+      <mat-button-toggle value="sell">Sell</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        [formControl]="tradeAmount"
+        type="number"
+        [min]="0"
+        [max]="data.asset.supply"
+        cdkFocusInitial
+      />
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="tradeAmount.invalid || tradeAmount.value <= 0"
+    (click)="tradeAsset()"
+  >
+    Submit Trade
+  </button>
+</div>
