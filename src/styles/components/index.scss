@@ -1,0 +1,15 @@
+@use "../../app/features/assets/components/asset/_asset-theme.component" as
+  asset;
+@use "../../app/features/assets/components/asset-pricing/_asset-pricing-theme.component"
+  as asset-pricing;
+@use "../../app/features/assets/components/asset-history-chart/_asset-history-chart-theme.component"
+  as asset-history-chart;
+@use "../../app/features/assets/components/asset-data-card/_asset-data-card-theme.component"
+  as asset-data-card;
+
+@mixin theme($theme, $typography-config) {
+  @include asset.theme($theme, $typography-config);
+  @include asset-data-card.theme($theme, $typography-config);
+  @include asset-pricing.theme($theme, $typography-config);
+  @include asset-history-chart.theme($theme, $typography-config);
+}

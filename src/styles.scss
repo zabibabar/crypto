@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "styles/theme.scss" as theme;
+@use "styles/typography.scss" as type;
+@use "./styles/components" as components;
+@use "sass:map";
+
+@include mat.core();
+@include mat.all-component-typographies(type.$typography);
+@include mat.all-component-themes(theme.$theme);
+@include components.theme(theme.$theme, type.$typography);
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  color: mat.get-color-from-palette(theme.$accent);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+$color-config: mat.get-color-config(theme.$theme);
+$foreground-palette: map.get($color-config, "foreground");
+.secondary-color {
+  color: mat.get-color-from-palette($foreground-palette, secondary-text);
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.mat-typography {
+  .mat-headline-1,
+  .mat-headline-2,
+  .mat-headline-5,
+  .mat-headline-6,
+  h1,
+  h2,
+  h5,
+  h6,
+  .mat-subtitle-1,
+  .mat-subtitle-2,
+  .mat-body-1,
+  .mat-body-2,
+  .mat-caption,
+  p {
+    margin: 0;
+  }
+}
